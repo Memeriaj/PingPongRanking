@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" ng-app="pingPongApp">
+<head>
+  <meta charset="utf-8">
+  <title>Ping Pong Rankings</title>
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+
+  <script src="../bower_components/angularjs/angular.js"></script>
+  <script src="main.js"></script>
+</head>
+<body>
+  <div class="col-md-12">
+    <h3>Ping Pong Rankings</h3>
+  </div>
+  <div ng-controller="UserListCtrl" class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th colspan="2">Name</td>
+              <th>Rank</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="user in users | orderBy:predicate:true">
+              <td>{{$index+1}}</td>
+              <td>{{user.firstName}}</td>
+              <td>{{user.lastName}}</td>
+              <td>{{user.ranking}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <br><br>
+
+      <div class="col-md-6">
+        <form class="form-inline" role="form" ng-submit="addUser()">
+          <div class="form-group">
+            <label class="sr-only" for="addUserFirstName">First Name</label>
+            <input type="text" class="form-control" id="addUserFirstName" placeholder="First Name" ng-model="addFirstName">
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for="addUserLastName">Last Name</label>
+            <input type="text" class="form-control" id="addUserLastName" placeholder="Last Name" ng-model="addLastName">
+          </div>
+          <button type="submit" class="btn btn-default">Add User</button>
+        </form>
+
+        <br><br>
+
+        <form role="form" ng-submit="playedGame()">
+          <div class="row">
+            <div class="col-sm-6 form-group">
+              <label for="playGameFirst">Player 1</label>
+              <select class="form-control" id="playGameFirst" ng-model="playedFirst" ng-options="user.firstName for user in users"></select>
+            </div>
+            <div class="col-sm-6 form-group">
+              <label for="playGameSecond">Player 2</label>
+              <select class="form-control" id="playGameSecond" ng-model="playedSecond" ng-options="user.firstName for user in users"></select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-6 form-group">
+              <label for="playGameFirstScore">Score 1</label>
+              <input type="number" class="form-control" id="playGameFirstScore" ng-model="playedFirstScore">
+            </div>
+            <div class="col-sm-6 form-group">
+              <label for="playGameSecondScore">Score 2</label>
+              <input type="number" class="form-control" id="playGameSecondScore" ng-model="playedSecondScore">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-default">Game Played</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

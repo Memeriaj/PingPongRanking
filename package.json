@@ -1,0 +1,16 @@
+{
+  "name": "pingPongTracker",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "express": "~4.0.0",
+    "sqlite": "*",
+    "bower": "*"
+  },
+  "devDependencies": {
+    "gulp": "*"
+  },
+  "engines": {
+    "node": "*"
+  }
+}

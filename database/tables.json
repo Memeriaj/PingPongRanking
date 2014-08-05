@@ -1,0 +1,123 @@
+[
+  {
+    "name": "users",
+    "columns": [
+      {
+        "name": "id",
+        "type": "INTEGER",
+        "constraints": [
+          "PRIMARY KEY AUTOINCREMENT"
+        ]
+      },
+      {
+        "name": "firstName",
+        "type": "TEXT",
+        "constraints": [
+          "NOT NULL"
+        ]
+      },
+      {
+        "name": "lastName",
+        "type": "TEXT",
+        "constraints": [
+          "NOT NULL"
+        ]
+      },
+      {
+        "name": "currentELO",
+        "type": "INTEGER",
+        "constraints": []
+      },
+      {
+        "name": "timestamp",
+        "type": "INTEGER",
+        "constraints": [
+          "NOT NULL"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "elo",
+    "columns": [
+      {
+        "name": "id",
+        "type": "INTEGER",
+        "constraints": [
+          "PRIMARY KEY AUTOINCREMENT"
+        ]
+      },
+      {
+        "name": "ranking",
+        "type": "REAL",
+        "constraints": [
+          "NOT NULL"
+        ]
+      },
+      {
+        "name": "userId",
+        "type": "INTEGER",
+        "constraints": [
+          "REFERENCES users (id)",
+          "NOT NULL"
+        ]
+      },
+      {
+        "name": "timestamp",
+        "type": "INTEGER",
+        "constraints": [
+          "NOT NULL"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "games",
+    "columns": [
+      {
+        "name": "id",
+        "type": "INTEGER",
+        "constraints": [
+          "PRIMARY KEY AUTOINCREMENT"
+        ]
+      },
+      {
+        "name": "winnerId",
+        "type": "INTEGER",
+        "constraints": [
+          "REFERENCES users (id)",
+          "NOT NULL"
+        ]
+      },
+      {
+        "name": "loserId",
+        "type": "INTEGER",
+        "constraints": [
+          "REFERENCES users (id)",
+          "NOT NULL"
+        ]
+      },
+      {
+        "name": "winningScore",
+        "type": "INTEGER",
+        "constraints": [
+          "NOT NULL"
+        ]
+      },
+      {
+        "name": "losingScore",
+        "type": "INTEGER",
+        "constraints": [
+          "NOT NULL"
+        ]
+      },
+      {
+        "name": "timestamp",
+        "type": "INTEGER",
+        "constraints": [
+          "NOT NULL"
+        ]
+      }
+    ]
+  }
+]

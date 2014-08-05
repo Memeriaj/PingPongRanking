@@ -1,0 +1,56 @@
+scott 20 - tommy 15
+scott 0 - farruhk 1
+andrew - tommy +10
+andrew 17 - even 5
+pat 1 - tommmy 5
+andrew 7 - pat 2
+even 3 - pat 2
+nolan 9 - grace 2
+andrew 0 - UC? 1
+nolan 3 - even 15
+andrew 13 - nolan 1
+tommy 7 - nolan 1
+tommy 3 - dave rosen (SU) 1
+pat 5 - nolan 3
+scott 2 - nolan 1
+tommy 4 - grace 4
+sam 2 - grace 20
+grace 11 - dave rosen 13
+sam 4 - rosen 24
+grace 0 - pat 1
+sam 0 - pat 1
+andrew 3 - rosen 0
+even 0 - grace 1
+rob 1 - sam 0
+sam 0 - nolan 3
+rosen 0 - nolan 1
+rob 1 - andrew 1
+andre 3 - grace 1
+rachel 29 - grace 26
+rob 0 -tommy 2
+zac 2 - rosen 1
+pedro 4 - sam 1
+pedro 2 - rosen 4
+rob 2 - rosen 0
+pedro 0 - tommy 1
+zac 8 - grace 1
+pat 2 - zac 3
+Joao 1 - grace 0
+rob 0 - nolan 1
+geno 4 - grace 1
+james 1 - sam 0
+ben 5 - james 2
+dylan 2 - grace 0
+ben 7 - rachel 6
+nolan 4 - dylan 2
+james 4 - annie 0
+nolan 2 - james 0
+nolan 1 - ben 0
+nolan 4 - brodie 3
+james 0 - brodie 4
+brodie 4 - rob 1
+james 0 - rachel 1
+james 0 - dylan 1
+brodie 0 - dylan 1
+ben 9 - annie 4
+pat 1 - dylan 1
