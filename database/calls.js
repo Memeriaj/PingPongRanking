@@ -172,7 +172,7 @@ exports.importGamesWithScores = function(games){
 			function(winnerId){
 				getUserId({firstName: curGame.loserFirstName, lastName: curGame.loserLastName},
 					function(winnerId){
-						export.playedGame(winnerId, loserId, curGame.winningScore, curGame.losingScore);
+						exports.playedGame(winnerId, loserId, curGame.winningScore, curGame.losingScore);
 						setTimeout(function(){setupGames(games, index+1);}, 50);
 					});
 			});
