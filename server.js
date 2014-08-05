@@ -18,6 +18,7 @@ db.serialize(function(){
 			databaseCalls.importGames(require('./database/games.json'));
 		}, 1000);
 	}
+
 });
 
 // SELECT * FROM users LEFT JOIN elo ON users.currentELO = elo.id
@@ -54,6 +55,24 @@ apiRouter.route('/playedGame').post(function(req, res){
 	databaseCalls.playedGame(game.firstId, game.secondId, 
 		parseInt(game.firstScore, 10), parseInt(game.secondScore, 10));
 	setTimeout(function(){res.json({updated: true});}, 1000);
+});
+apiRouter.route('/exportUsers').get(function(req, res){
+	db.all('SELECT firstName, lastName from Users', function(err, rows){
+		res.json(rows);
+	});
+});
+apiRouter.route('/exportGames').get(function(req, res){
+	var sql = 	'SELECT u1.firstName AS winnerFirstName, u1.lastName AS winnerLastName, g.winningScore, '+
+					'u2.firstName AS loserFirstName, u2.lastName AS loserLastName, g.losingScore '+
+				'FROM games AS g '+
+				'LEFT JOIN users AS u1 '+
+					'ON g.winnerId = u1.id '+
+				'LEFT JOIN users AS u2 '+
+					'ON g.loserId = u2.id '+
+				'ORDER BY g.timestamp';
+	db.all(sql, function(err, rows){
+		res.json(rows);
+	});
 });
 app.use('/api', apiRouter);
 

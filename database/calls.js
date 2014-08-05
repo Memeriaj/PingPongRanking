@@ -92,8 +92,6 @@ exports.playedGame = function(firstId, secondId, firstScore, secondScore){
 };
 
 
-
-exports.importGames = function(games){
 	var getUserId = function(name, func){
 		db.get('SELECT id FROM users WHERE firstName = ? and lastName = ?', 
 			[name.firstName, name.lastName], function(err, row){
@@ -102,6 +100,7 @@ exports.importGames = function(games){
 
 	};
 
+exports.importGames = function(games){
 	var wins = [];
 	var adjustGames = function(game){
 		getUserId(game.first.name, function(firstId){
@@ -163,4 +162,22 @@ exports.importGames = function(games){
 };
 
 
+exports.importGamesWithScores = function(games){
+	var setupGames = function(games, index){
+		if(index >= games.length){
+			return;
+		}
+		var curGame = games[index];
+		getUserId({firstName: curGame.winnerFirstName, lastName: curGame.winnerLastName},
+			function(winnerId){
+				getUserId({firstName: curGame.loserFirstName, lastName: curGame.loserLastName},
+					function(winnerId){
+						export.playedGame(winnerId, loserId, curGame.winningScore, curGame.losingScore);
+						setTimeout(function(){setupGames(games, index+1);}, 50);
+					});
+			});
+	};
+
+	setupGames(games, 0);
+}
 
