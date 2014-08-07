@@ -4,11 +4,8 @@
   "private": true,
   "dependencies": {
     "express": "~4.0.0",
-    "sqlite": "*",
+    "sqlite3": "*",
     "bower": "*"
-  },
-  "devDependencies": {
-    "gulp": "*"
   },
   "engines": {
     "node": "*"
